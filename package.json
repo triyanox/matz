@@ -1,0 +1,29 @@
+{
+  "name": "matz",
+  "description": "The Matz toy programming language for working with linear algebra written in Bun",
+  "version": "0.1.0",
+  "module": "index.ts",
+  "author": {
+    "name": "Mohamed Achaq",
+    "email": "hi@achaq.dev",
+    "url": "https://achaq.dev"
+  },
+  "scripts": {
+    "build": "bun build ./cli/index.ts --compile --outfile ./bin/matz",
+    "start": "./bin/matz"
+  },
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest",
+    "@types/moo": "^0.5.6",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "moo": "^0.5.2"
+  }
+}
