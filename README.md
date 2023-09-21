@@ -1,6 +1,6 @@
-# matz
+# `matz` - An Experimental Linear Algebra Langauge Written With Bun.sh
 
-This is a toy programming language that I'm building to learn more about intrepreters. It's inspired by the syntax of python and javascript and it's meant to be used for linear algebra operations.
+This is a toy programming language that I'm building with Bun.sh to learn more about intrepreters. It's inspired by the syntax of python and javascript and it's meant to be used for linear algebra operations.
 
 ## Syntax
 
@@ -17,6 +17,11 @@ vector L = [24, 12, 24]
 # declare matrix
 matrix D = [[23, 12, 11], [12, 23, 12], [12, 12, 23]]
 
+# declare in one line
+scaler K = 2, scaler O = 2, scaler P = 2
+vector F = [2, 2, 2], vector G = [2, 2, 2], vector H = [2, 2, 2]
+matrix Z = [[23, 12, 11], [12, 23, 12], [12, 12, 23]] matrix Y = [[23, 12, 11], [12, 23, 12], [12, 12, 23]]
+
 # declare a computed vector
 computeVector C = [A, A]
 
@@ -24,7 +29,7 @@ computeVector C = [A, A]
 computeMatrix E = [D, D]
 
 # print the values
-print("print A", A)
+print("print A", A) # print the vector
 
 # vector operations
 calcVec SUM = A + A
@@ -32,7 +37,7 @@ calcVec SUB = A - A
 calcVec MUL = A * A
 calcVec DIV = A / A
 calcVec CROSS = A x A
-calcVec SCALE = A _ 4
+calcVec SCALE = A _ 4 # scale a vector
 
 # vector builtins operations
 calc norm = norm(A)  # calculate the norm of the vector
@@ -48,25 +53,41 @@ calc rejection = reject(A, A)
 calc reflection = reflect(A, A)
 # calculate the refraction of a vector on another vector
 calc refraction = refract(A, L, 4)
-
 # matrix operations
-calcMat SUM2 = D + D  # sum two matrices
-calcMat SUB2 = D - D  # subtract two matrices
-calcMat MUL2 = D * D  # multiply two matrices
-calcMat SCALE2 = D _ 6  # scale a matrix
+calcMat SUM2 = D + D
+calcMat SUB2 = D - D 
+calcMat MUL2 = D * D   
+calcMat SCALE2 = D _ 6   
 
 # matrix builtins operations
 calc INVERSE2 = inverse(D)  # calculate the inverse of a matrix
 calc TRANSPOSE2 = transpose(D)  # calculate the transpose of a matrix
 calc DETERMINANT2 = determinant(D)  # calculate the determinant of a matrix
 
+# also you can the js context and access the built-in methods inside the print string args
 print(" ")
-# print the result of the multiplication of two matrices using the star to run custom js code
-print("*D.mul(D).toString()")
+print("print A", "*A.values")
 print(" ")
-print("refraction", refraction)
-print(" ")
-print("*refraction.toString()")
+print("print A scaled by 2", "*D.scale(2).values")
+
+# declare a function to compute a matrix from a vector
+function matFromVecs(vector A)-> matrix {
+    computeMatrix B = [A, A, A]
+    return B
+}
+
+# declare a function to compute the norm of a vector
+function getNorm(vector A)-> scaler {
+    calc B = norm(A)
+    return B # function can return only values for the moement
+}
+
+# call the functions
+result mat = matFromVecs(A) # result is a keyword to return a value from a function
+result n = getNorm(A)
+
+print("print mat", "*mat.values") # print the matrix
+print("print n", n) # print the norm
 ```
 
 ## Roadmap
@@ -78,11 +99,14 @@ This is just a toy project to learn more about intrepreters so it's not meant to
 - [x] Matrices
 - [x] Operations
 - [x] Builtins
-- [x] Custom JS code
+- [x] Functions
+- [ ] Custom JS code
 - [ ] Accessors 
-- [ ] Functions
 - [ ] Conditionals
 - [ ] Loops
+- [ ] Error handling 
+- [ ] Modules
+- [ ] Async/Await
 
 ## Installation
 
@@ -105,3 +129,7 @@ Commands:
   ast <file>               Print the AST of a matz file
   help [command]           display help for command
 ```
+
+## Install vscode extension
+
+You can install the vscode extension [here](https://marketplace.visualstudio.com/items?itemName=matz.matz-vscode).

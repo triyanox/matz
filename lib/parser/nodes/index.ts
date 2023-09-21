@@ -10,6 +10,7 @@ import ScalarDeclaration from "./scaler-declaration";
 import VectorDeclaration from "./vector-declaration";
 import VectorOperation from "./vector-operation";
 import MethodOperation from "./method-operation";
+import StringDeclaration from "./string-declaration";
 export {
   ComputeMatrixDeclaration,
   ComputeVectorDeclaration,
@@ -23,4 +24,5 @@ export {
   VectorDeclaration,
   VectorOperation,
   MethodOperation,
+  StringDeclaration,
 };

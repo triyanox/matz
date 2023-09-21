@@ -17,3 +17,4 @@ export * from "./vector-declaration-node";
 export * from "./vector-operation-node";
 export * from "./vector-ref-node";
 export * from "./method-operation-node";
+export * from "./string-node";

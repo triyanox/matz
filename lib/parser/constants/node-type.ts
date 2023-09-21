@@ -1,5 +1,6 @@
 export enum NodeType {
   ScalarDeclaration = "ScalarDeclaration",
+  StringDeclaration = "StringDeclaration",
   VectorDeclaration = "VectorDeclaration",
   ComputeVectorDeclaration = "ComputeVectorDeclaration",
   MatrixDeclaration = "MatrixDeclaration",

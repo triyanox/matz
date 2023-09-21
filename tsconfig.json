@@ -7,7 +7,7 @@
     "moduleDetection": "force",
     "baseUrl": ".",
     "paths": {
-      "*": ["*", "*.ne"]
+      "*": ["*", "*.json"]
     },
     "allowImportingTsExtensions": true,
     "noEmit": true,
@@ -19,8 +19,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
-    "types": [
-      "bun-types" // add Bun global
-    ]
-  }
+    "types": ["bun-types"]
+  },
+  "include": ["**/*", "package.json"]
 }

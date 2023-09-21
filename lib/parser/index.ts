@@ -13,6 +13,7 @@ import {
   ScalarDeclaration,
   VectorDeclaration,
   VectorOperation,
+  StringDeclaration,
 } from "./nodes";
 
 class Parser {
@@ -42,6 +43,9 @@ class Parser {
           continue;
         } else {
           switch (token.text) {
+            case "str":
+              ast.push(StringDeclaration(tokens));
+              break;
             case "vector":
               ast.push(VectorDeclaration(tokens));
               break;

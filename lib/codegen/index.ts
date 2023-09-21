@@ -8,6 +8,7 @@ import {
   PrintBlockNode,
   ReturnNode,
   ScalarDeclarationNode,
+  StringDeclarationNode,
   VectorDeclarationNode,
   VectorOperationNode,
 } from "lib/parser/interfaces";
@@ -29,6 +30,14 @@ interface ICodeGen {
    * Logs the generated code to the console
    */
   log(): void;
+  /**
+   * Runs the generated code
+   */
+  run(): void;
+  /**
+   * Generates code from an AST synchronously
+   */
+  generateSync(ast: Node[]): string;
 }
 
 class CodeGen implements ICodeGen {
@@ -65,6 +74,11 @@ class CodeGen implements ICodeGen {
         case "ScalarDeclaration":
           this.code.push(
             this._genScalarDeclaration(node as ScalarDeclarationNode)
+          );
+          break;
+        case "StringDeclaration":
+          this.code.push(
+            this._genStringDeclaration(node as StringDeclarationNode)
           );
           break;
         case "ComputeVectorDeclaration":
@@ -112,6 +126,10 @@ class CodeGen implements ICodeGen {
     return this.codeString;
   }
 
+  private _genStringDeclaration(node: StringDeclarationNode): string {
+    return `let ${node.name} = ${node.value};\n`;
+  }
+
   private _genMethodOperationNode(node: MethodOperationNode): string {
     const args = node.args
       .slice(1)
@@ -128,7 +146,6 @@ class CodeGen implements ICodeGen {
         }
       })
       .join(", ");
-    console.log(args);
     return `let ${node.result.name} = ${node.args[0]}.${node.method}(${args});\n`;
   }
 
@@ -173,7 +190,7 @@ class CodeGen implements ICodeGen {
   private _genComputeMatrixDeclaration(node: MatrixDeclarationNode): string {
     return `let ${node.name} = matrix([${node.values
       .map((v: string | any) => {
-        if (typeof v === "string") return v;
+        if (typeof v === "string") return v + ".values";
         return `[${v.join(",")}]`;
       })
       .join(",")}]);\n`;
