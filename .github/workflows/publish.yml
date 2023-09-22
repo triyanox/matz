@@ -1,36 +1,19 @@
-name: Publish
+name: Build Binary & Publish Artifact
+
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+
 jobs:
-  setup-bun:
-    runs-on: ${{ matrix.os }}
-    continue-on-error: true
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-        bun-version:
-          - latest
-          - canary
-          - "0.5.6"
-          - "9be68ac2350b965037f408ce4d47c3b9d9a76b63"
+  publish:
+    runs-on: ubuntu-latest
     steps:
-      - id: checkout
-        name: Checkout
-        uses: actions/checkout@v3
-      - id: setup-bun
-        name: Setup Bun
-        uses: ./
+      - uses: actions/checkout@v2
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install
+      - run: bun run build
+      - uses: actions/upload-artifact@v2
         with:
-          bun-version: ${{ matrix.bun-version }}
-      - id: verify-bun
-        name: Verify Bun
-        run: |
-          bun --version
+          name: bin
+          path: bin
