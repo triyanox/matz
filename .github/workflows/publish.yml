@@ -26,13 +26,18 @@ jobs:
           tag_name: v${{ github.sha }}
           release_name: Release-${{ github.run_number }}
           draft: false
-          prerelease: false
-      - name: Attach artifact to release
+          prerelease: true
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: bin
+          path: bin
+      - run: zip -r bin.zip bin
+      - name: Upload Release Artifact
         uses: actions/upload-release-asset@v1
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: bin
-          asset_name: bin
+          asset_path: bin.zip
+          asset_name: bin.zip
           asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
