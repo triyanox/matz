@@ -116,11 +116,19 @@ This is just a toy project to learn more about intrepreters so it's not meant to
 
 ## Installation
 
-```
-npm install -g matz
+```bash
+docker pull ghcr.io/triyanox/matz:main
 ```
 
 ## Usage
+
+### Basic usage
+
+```bash
+docker run -it --rm ghcr.io/triyanox/matz:main run <file>
+```
+
+### Additional commands
 
 ```
 Usage: matz [options] [command]
