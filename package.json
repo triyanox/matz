@@ -1,7 +1,7 @@
 {
   "name": "matz",
   "description": "The Matz toy programming language for working with linear algebra written in Bun",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [
     "matz",
     "bun",
@@ -16,8 +16,7 @@
   },
   "scripts": {
     "build": "bun build ./cli/index.ts --compile --outfile ./bin/matz",
-    "start": "./bin/matz",
-    "publish": "bun run build && npm publish --access public"
+    "start": "./bin/matz"
   },
   "type": "module",
   "devDependencies": {
@@ -32,8 +31,5 @@
     "chalk": "^5.3.0",
     "commander": "^11.0.0",
     "moo": "^0.5.2"
-  },
-  "bin": {
-    "matz": "./bin/matz"
   }
 }
