@@ -4,5 +4,5 @@ import Node from "./node";
 export interface ScalarDeclarationNode extends Node {
   type: NodeType.ScalarDeclaration;
   name: string;
-  value: number;
+  exp?: string;
 }

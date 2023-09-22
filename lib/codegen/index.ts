@@ -178,7 +178,11 @@ class CodeGen implements ICodeGen {
   }
 
   private _genComputeVectorDeclaration(node: VectorDeclarationNode): string {
-    return `let ${node.name} = vector([${node.values.join(",")}]);\n`;
+    return `let ${node.name} = vector([${node.values
+      .map((v) => {
+        if (typeof v === "string") return v + ".values";
+      })
+      .join(", ")}]);\n`;
   }
 
   private _genMatrixDeclaration(node: MatrixDeclarationNode): string {
@@ -189,9 +193,8 @@ class CodeGen implements ICodeGen {
 
   private _genComputeMatrixDeclaration(node: MatrixDeclarationNode): string {
     return `let ${node.name} = matrix([${node.values
-      .map((v: string | any) => {
+      .map((v) => {
         if (typeof v === "string") return v + ".values";
-        return `[${v.join(",")}]`;
       })
       .join(",")}]);\n`;
   }

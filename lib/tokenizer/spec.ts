@@ -38,10 +38,13 @@ const Spec = {
   times: "*",
   divide: "/",
   pow: "^",
+  mod: "%",
   identifier: /[a-zA-Z_][a-zA-Z0-9_]*/,
   comparison: /==|!=|<=|>=|<|>/,
   nl: { match: /\n/, lineBreaks: true },
   print: /print\([a-zA-Z_][a-zA-Z0-9_]*,[a-zA-Z_][a-zA-Z0-9_]*\)/,
+  endel: ";",
+  str: /str\([a-zA-Z_][a-zA-Z0-9_]*,[a-zA-Z_][a-zA-Z0-9_]*\)/,
 };
 
 export default Spec;
