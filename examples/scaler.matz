@@ -1,0 +1,3 @@
+scaler a = 3 % 2 + (10 - 12 + 13 / 2 ); # terminating semicolon
+scaler inifinity = 1 / 0; # division by zero to get infinity
+print(a, inifinity);

@@ -2,11 +2,10 @@
 print("Hello World!")
 
 # Multi line hello world
-str HelloWorld = "Hello World!"
+str HelloWorld = "Hello World!" 
 print(HelloWorld)
 
 # Hello world with variables
 str hello = "Hello"
 str world = "World!"
 print(hello world)
-
