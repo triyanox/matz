@@ -2,6 +2,13 @@
   "name": "matz",
   "description": "The Matz toy programming language for working with linear algebra written in Bun",
   "version": "0.1.0",
+  "keywords": [
+    "matz",
+    "bun",
+    "linear algebra",
+    "programming language",
+    "toy language"
+  ],
   "author": {
     "name": "Mohamed Achaq",
     "email": "hi@achaq.dev",
