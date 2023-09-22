@@ -1,12 +1,18 @@
 # `matz` - An Experimental Linear Algebra Langauge Written With Bun.sh
 
+<img src="https://raw.githubusercontent.com/triyanox/matz/main/assets/banner.png" alt="matz banner"
+title="matz" align="center" height="auto" width="100%"/>
+
 This is a toy programming language that I'm building with Bun.sh to learn more about intrepreters. It's inspired by the syntax of python and javascript and it's meant to be used for linear algebra operations.
 
 ## Syntax
 
+<img src="https://raw.githubusercontent.com/triyanox/matz/main/assets/hello-world.png" alt="matz banner"
+title="matz" align="center" height="auto" width="100%"/>
+
 This is the syntax it's inspired by the synatax of python and javascript.
 
-```py
+```
 # declare scaler
 scaler B = 2
 
