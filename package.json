@@ -1,7 +1,7 @@
 {
   "name": "matz",
   "description": "The Matz toy programming language for working with linear algebra written in Bun",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "keywords": [
     "matz",
     "bun",

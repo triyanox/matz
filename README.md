@@ -29,10 +29,12 @@ vector F = [2, 2, 2], vector G = [2, 2, 2], vector H = [2, 2, 2]
 matrix Z = [[23, 12, 11], [12, 23, 12], [12, 12, 23]] matrix Y = [[23, 12, 11], [12, 23, 12], [12, 12, 23]]
 
 # declare a computed vector
-computeVector C = [A, A]
+computeVector C = [A, A,D]
+print("print C", C) # print the vector
 
 # declare a computed matrix
 computeMatrix E = [D, D]
+print("print E", E) # print the matrix
 
 # print the values
 print("print A", A) # print the vector
@@ -58,7 +60,8 @@ calc rejection = reject(A, A)
 # calculate the reflection of a vector on another vector
 calc reflection = reflect(A, A)
 # calculate the refraction of a vector on another vector
-calc refraction = refract(A, L, 4)
+calc refraction = refract(A, L, 4) # scale a matrix
+
 # matrix operations
 calcMat SUM2 = D + D
 calcMat SUB2 = D - D 
